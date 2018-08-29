@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
 
@@ -12,21 +13,28 @@
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap" async defer></script>
 </head>
 
 <body>
 
-		<div id="mapContainer">
-			<div id="errorContainer">
-				<div class="errorPanel" style="display:none">
-					<span></span>
-					<div id="errorClose">x</div>
-				</div>
-				<canvas id="errorArrow"></canvas>
-			</div>
+  <div id="map-container">
+    <div id="error-container">
+      <div class="error-panel" style="display:none">
+        <span></span>
+        <div id="error-close">x</div>
+      </div>
+      <canvas id="error-arrow"></canvas>
+    </div>
 
-			<div id="map-canvas">PLOP</div>
-		</div>
+    <div id="map-canvas"></div>
+  </div>
 
-</ao:master>
+
+  <script type="module">
+    import {Client} from './client.js'; window.initMap = function(){ new Client().run(); };
+  </script>
+
+</body>
